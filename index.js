@@ -1,9 +1,6 @@
 const express = require("express");
-const { MongoClient, ServerApiVersion, Db, ObjectId } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const app = express();
-const fileupload = require('express-fileupload');
-const multer = require('multer');
-const mongoose =require('mongoose');
 require('dotenv').config();
 const cors =require('cors');
 const jwt =require('jsonwebtoken');
@@ -115,12 +112,6 @@ async function run() {
       res.send(result);
 
     })
-
-    // app.get('/users',async(req,res)=>{
-    //   const users = await usersCollection.find().toArray();
-    //   console.log(users)
-    //   res.send(users);
-    // })
  
     // verify jwt admin secqurity
     app.patch("/users/admin/:id", async (req, res) => {
